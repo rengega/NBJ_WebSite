@@ -3,61 +3,560 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap w/ Webpack</title>
+    <title>Nashville Business News</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+    <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css”/>
+    <!-- Bootstrap Font Icon CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 <script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
 
 <body>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+<header>
+    <nav id="top-nav" >
+        <div class="d-flex justify-content-between align-items-center p-3" style=" height: 35px; font-weight: bold; position: relative  ">
+            <div class=" top-nav-content d-flex justify-content-end align-items-center" >
+                <div class="">THE BUSINESS JOURNAL</div>
+                <div class="divider"> &nbsp;</div>
+                <button id="select-city-button" class="btn border-0 rounded-0 fw-bold">
+                    Select a City
+                    <i class="bx bx-chevron-down" ></i>
+                </button>
+                <div class="cityDropdown dropdown-menu rounded-0 border-0 shadow" id="select-city-dropdown">
+                    <a href="#" class="dropdown-item">Nashville</a>
+                    <a href="#" class="dropdown-item">New York</a>
+                    <a href="#" class="dropdown-item">Los Angeles</a>
+                    <a href="#" class="dropdown-item">Chicago</a>
+                    <a href="#" class="dropdown-item">Houston</a>
+                    <a href="#" class="dropdown-item">Philadelphia</a>
+                    <a href="#" class="dropdown-item">Phoenix</a>
+                    <a href="#" class="dropdown-item">San Antonio</a>
+                    <a href="#" class="dropdown-item">San Diego</a>
+                    <a href="#" class="dropdown-item">Dallas</a>
+                    <a href="#" class="dropdown-item">San Jose</a>
+                    <a href="#" class="dropdown-item">Austin</a>
+                    <a href="#" class="dropdown-item">Jacksonville</a>
+                    <a href="#" class="dropdown-item">San Francisco</a>
+                    <a href="#" class="dropdown-item">Indianapolis</a>
+                    <a href="#" class="dropdown-item">Columbus</a>
+                    <a href="#" class="dropdown-item">Fort Worth</a>
+                    <a href="#" class="dropdown-item">Charlotte</a>
+                    <a href="#" class="dropdown-item">Detroit</a>
+                    <a href="#" class="dropdown-item">El Paso</a>
+                    <a href="#" class="dropdown-item">Memphis</a>
+                    <a href="#" class="dropdown-item">Boston</a>
+                    <a href="#" class="dropdown-item">Seattle</a>
+                    <a href="#" class="dropdown-item">Denver</a>
+                    <a href="#" class="dropdown-item">Washington</a>
+                    <a href="#" class="dropdown-item">Nashville</a>
+                    <a href="#" class="dropdown-item">Baltimore</a>
+                    <a href="#" class="dropdown-item">Oklahoma City</a>
+                    <a href="#" class="dropdown-item">Louisville</a>
+                    <a href="#" class="dropdown-item">Portland</a>
+                    <a href="#" class="dropdown-item">Las Vegas</a>
+                    <a href="#" class="dropdown-item">Milwaukee</a>
+                    <a href="#" class="dropdown-item">Albuquerque</a>
+                    <a href="#" class="dropdown-item">Tucson</a>
+                    <a href="#" class="dropdown-item">Fresno</a>
+                    <a href="#" class="dropdown-item">Sacramento</a>
+                    <a href="#" class="dropdown-item">Long Beach</a>
+                    <a href="#" class="dropdown-item">Kansas City</a>
+                    <a href="#" class="dropdown-item">Mesa</a>
+                    <a href="#" class="dropdown-item">Atlanta</a>
+                    <a href="#" class="dropdown-item">Colorado Springs</a>
+                    <a href="#" class="dropdown-item">Virginia Beach</a>
+                    <a href="#" class="dropdown-item">Raleigh</a>
+                    <a href="#" class="dropdown-item">Omaha</a>
+                    <a href="#" class="dropdown-item">Miami</a>
+                    <a href="#" class="dropdown-item">Oakland</a>
+                    <a href="#" class="dropdown-item">Minneapolis</a>
+                    <a href="#" class="dropdown-item">Tulsa</a>
+
+
+
+                </div>
+            </div>
+            <div class="top-nav-content  justify-content-end align-items-center">
+                <div class="">
+                    <div class=""data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn border-0 rounded-0 " href="#" role="button" >
+                            <span id="sign-in-text" >
+                                Sign In
+                                <i class="bx bx-chevron-down"></i>
+                            </span>
+
+                            <svg id="sign-in-logo" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                            </svg>
+                        </button>
+
+                    </div>
+                    <ul class="dropdown-menu border-0 rounded-0 shadow ">
+                        <li>
+                            <a class="dropdown-item d-flex flex-wrap" href="#">
+                                <b class="d-block w-100">Sign In</b>
+                                <smal class="d-block w-100">Existing Members</smal>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item d-flex flex-wrap" href="#">
+                                <b class="d-block w-100">Become a Memeber</b>
+                                <smal class="d-block w-100">It's FREE!</smal>
+                            </a>
+                        </li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+                </div>
+            </div>
+            </div>
+
+
+
         </div>
-    </div>
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Active</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
-        </li>
-    </ul>
-</nav>
+    </nav>
+    <nav id="second-nav" class="navbar border-bottom align-items-stretch  position-relative p-0">
+        <div id="search" class="dropdown order-4 order-sm-last ">
+            <button id="search-trigger"  data-toggle="collapse" data-target="#" class=" border-0 rounded-0 bg-transparent market-links-dropdown-trigger market-search market-search-collapsed"></button>
+        </div>
+        <div id="search-dropdown-menu" class=" align-items-center w-100 order-last search-dropdown rounded-0 shadow border-0">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <form id="input-form" class="d-flex" style="width: 1500px">
+                            <div class="card-body row no-gutters align-items-stretch mx-4">
+                                <div class="col-auto p-0" style="background-color: white">
+                                    <i class="bi bi-search h4 text-body p-1"></i>
+                                </div>
+                                <!--end of col-->
+                                <div class="col p-0">
+                                    <input id="search-box" class="form-control border-0 rounded-0" type="search" placeholder="Search">
+                                </div>
+                                <!--end of col-->
+                                <div class="col-auto p-0 m-0">
+                                    <button id="search-button" class="border-0 h-100 p-0" type="submit">
+                                        <i class="bi bi-arrow-right px-2"></i>
+                                    </button>
+                                </div>
+                                <!--end of col-->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="branding" class="order-1  flex-grow-1 flex-md-grow-0">
+            <a id="branding-holder" href="" class="d-flex align-items-center justify-content-center text-center mx-auto h-100 " >
+                <img id="branding-svg" src="images/048359ac0894c3e9d86d.svg" alt="">
+            </a>
+        </div>
+        <div id="promo" class="promo d-none d-xl-flex  order-2 flex-sm-grow-1 align-items-center" >
+            <a href="" class="px-4" style="text-decoration: none">
+                <div class="promo-title px-4 ml-2 fw-bold" >
+                    Crane Watch: The Big Map of Projects
+                    <i class="bx bx-chevron-right"></i>
+                </div>
+            </a>
+        </div>
+
+        <div id="suboffer" class="order-last order-sm-2 d-flex flex-sm-grow-1 justify-content-sm-end  w-auto">
+            <div id="market-suboffer" class="d-flex align-items-center">
+                <div class="text-uppercase" style="font-size: 0.8rem">ACCESS ALL ARTICLES</div>
+                <button id="market-offer-button" class="btn-primary border-0">SUBSCRIBE NOW</button>
+            </div>
+        </div>
+
+        <div class="border-bottom d-none d-sm-flex order-sm-2 w-sm-100"></div>
+
+        <div id="link-bar" class="d-sm-flex   align-items-center order-0 order-xl-3">
+            <button id="market-links-dropdown-trigger"  data-toggle="collapse" data-target="#market-links-dropdown-menu" class=" border-0 rounded-0 bg-transparent market-links-dropdown-trigger collapsed">
+            </button>
+            <div id="market-links-desktop" class="d-none d-xl-flex align-items-center">
+                <div id="mld-primary" class="align-items-center">
+                    <a href="" class="desktop-menu-item">Latest News</a>
+                    <a href="" class="desktop-menu-item">Lists & Leads</a>
+                    <a href="" class="desktop-menu-item">Commercial Real Estate</a>
+                    <a href="" class="desktop-menu-item">Banking</a>
+                    <a href="" class="desktop-menu-item">Technology</a>
+                    <a href="" class="desktop-menu-item">Health Care</a>
+                    <a href="" class="desktop-menu-item">Residential Real Estate</a>
+                    <a href="" class="desktop-menu-item">Food & Lifestyle</a>
+                    <a href="" class="desktop-menu-item">Nashville Inno</a>
+                </div>
+                <div id="mld-secondary" class="align-items-center">
+                    <span class=" px-3 py-1">|</span>
+                    <a href="" class="desktop-menu-item">Events</a>
+                    <a href="" class="desktop-menu-item">Nominations</a>
+
+
+                </div>
+            </div>
+        </div>
+        <div id="market-links-dropdown-menu" class=" w-100 order-last market-links-dropdown rounded-0 shadow border-0">
+
+            <button class="collapsible active">
+                <div class="d-flex justify-content-between w-100">
+                    Industries &amp; Topics
+                    <span class="float-right d-inline-block"><i class="bi bi-chevron-down"></i></span></div>
+            </button>
+            <div class="content contentActive">
+                <div class="row w-100 ">
+                    <div class="col-12 col-sm-6">
+                        <div class="row">
+                            <div class=" col-12 col-lg-6 pb-0">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Banking & Financial Services</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Career & Workplace</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Commercial Real Estate</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="market-link-href" href="">Diversity, Equity and Inclusion</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Education</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                            <div class="col-12 col-lg-6 ">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Energy</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Food & Lifestyle</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Government & Regulations</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="market-link-href" href="">Health Care</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Health Care</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="row">
+                            <div class=" col-12 col-lg-6 pb-0">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href=""> Sports Business
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Technology</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Transportation</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="market-link-href" href="">Travel & Tourism</a>
+                                    </li>
+
+
+                                </ul>
+
+                            </div>
+                            <div class="col-12 col-lg-6 ">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Energy</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Food & Lifestyle</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Government & Regulations</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="market-link-href" href="">Health Care</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Health Care</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="collapsible">
+                <div class="d-flex justify-content-between w-100">
+                    Partner Insights (Sponsored Content)
+                    <span class="float-right d-inline-block"><i class="bi bi-chevron-down"></i></span></div>
+            </button>
+            <div class="content">
+                <div class="row w-100 ">
+                    <div class="col-12 col-sm-6">
+                        <div class="row">
+                            <div class=" col-12 col-lg-6 pb-0">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Partner Content</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Financial Insights Built for Business</a>
+                                    </li>
+
+
+                                </ul>
+
+                            </div>
+                            <div class="col-12 col-lg-6 ">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Change Makers</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Business Matters</a>
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="row">
+                            <div class=" col-12 col-lg-6 pb-0">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href=""> A New Horizon for Nashville Businesses</a>
+                                    </li>
+
+
+                                </ul>
+
+                            </div>
+                            <div class="col-12 col-lg-6 ">
+                                <ul class="list-unstyled">
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="collapsible">
+                <div class="d-flex justify-content-between w-100">
+                    Events
+                    <span class="float-right d-inline-block"><i class="bi bi-chevron-down"></i></span></div>
+            </button>
+            <div class="content">
+                <div class="row w-100 ">
+                    <div class="col-12 col-sm-6">
+                        <div class="row">
+                            <div class=" col-12 col-lg-6 pb-0">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">NBJ Events</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Nominations</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div class="col-12 col-lg-6 ">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Event Photos</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Business Events Calendar</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="row">
+                            <div class=" col-12 col-lg-6 pb-0">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">NBJ's Women of Influence</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">NBJ's 40 Under 40 Awards</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                            <div class="col-12 col-lg-6 ">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="collapsible">
+                <div class="d-flex justify-content-between w-100">
+                    Marketing Solutions
+                    <span class="float-right d-inline-block"><i class="bi bi-chevron-down"></i></span></div>
+            </button>
+            <div class="content">
+                <div class="row w-100 ">
+                    <div class="col-12 col-sm-6">
+                        <div class="row">
+                            <div class=" col-12 col-lg-6 pb-0">
+                                <ul class="list-unstyled">
+
+                                    <li>
+                                        <a class="market-link-href" href="">Book of Lists</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Book of Lists Unlimited</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="market-link-href" href="">People on the Move</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">BizSpotlight</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                            <div class="col-12 col-lg-6 ">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Property Showcase</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Home of the Day</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="market-link-href" href="">Cool Spaces</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">BizLeads</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="row">
+                            <div class=" col-12 col-lg-6 pb-0">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href=""> BizEquity</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Store</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Leads</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="market-link-href" href="">Crane Watch</a>
+                                    </li>
+
+
+                                </ul>
+
+                            </div>
+                            <div class="col-12 col-lg-6 ">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Advertise With Us</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="market-link-href" href="">Leadership Trust</a>
+                                    </li>
+                                    <li>
+                                        <a class="market-link-href" href="">Research Intelligence</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="collapsible">
+                <div class="d-flex justify-content-between w-100">
+                    Newsletters & Subscriptions
+                    <span class="float-right d-inline-block"><i class="bi bi-chevron-down"></i></span></div>
+            </button>
+            <div class="content">
+                <div class="row w-100 ">
+                    <div class="col-12 col-sm-6">
+                        <div class="row">
+                            <div class=" col-12 col-lg-6 pb-0">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Newsletter Sign-Up</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                            <div class="col-12 col-lg-6 ">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Start a Subscription</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="row">
+                            <div class=" col-12 col-lg-6 pb-0">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Subscriber-Only Content</a>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                            <div class="col-12 col-lg-6 ">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="market-link-href" href="">Weekly Digital Edition</a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+</header>
 
 
 
@@ -1239,280 +1738,256 @@
 <footer >
     <div class="footer-header champagneDark">
         <div class="container">
+
             <div class="row">
-                <div class="col col-md-4">
+                <div class="container d-flex justify-content-end">
+                    <a href="" id="back-to-top"> Back to Top
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                            <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row pb-2">
+                <div class="col-12 col-lg-4">
                     <a href="">
                         <img src="images/c80078ea154462164a2f.png" alt="">
                     </a>
                 </div>
-                <div class="col col-md col-lg-8 d-none d-md-block ">
 
-                      <ul style="display: inline-block; margin-right: 10px;">
-                          <li style="display: inline-block; margin-right: 20px">
-                              <a href="">link1</a>
-                          </li>
-                          <li style="display: inline-block; margin-right: 20px">
-                              <a href="">link1</a>
-                          </li>
-                          <li style="display: inline-block; margin-right: 20px">
-                              <a href="">link1</a>
-                          </li>
-                          <li style="display: inline-block; margin-right: 20px">
-                              <a href="">link1</a>
-                          </li>
-                          <li style="display: inline-block; margin-right: 20px">
-                              <a href="">link1</a>
-                          </li>
-                          <li style="display: inline-block; margin-right: 20px">
-                              <a href="">link1</a>
-                          </li>
-                          <li style="display: inline-block; margin-right: 20px">
-                              <a href="">link1</a>
-                          </li>
-                          <li style="display: inline-block; margin-right: 20px">
-                              <a href="">link1</a>
-                          </li>
-                      </ul>
+                <div class="col-12 col-lg-8 d-flex justify-content-lg-end">
+                    <div class="row">
+                        <ul class=" border-0 d-none d-md-block pt-2 pt-lg-0">
+                            <li class="d-inline unordered-list-item" >
+                                <a href="" class="header-unordered-list-href">Home</a>
+                            </li>
+                            <li class=" d-inline unordered-list-item">
+                                <a href="" class="header-unordered-list-href">News</a>
+                            </li>
+                            <li class=" d-inline unordered-list-item">
+                                <a href="" class="header-unordered-list-href">Lists & Leads</a>
+                            </li>
+                            <li class=" d-inline unordered-list-item">
+                                <a href="" class="header-unordered-list-href">People</a>
+                            </li>
+                            <li class=" d-inline unordered-list-item">
+                                <a href="" class="header-unordered-list-href">Companies</a>
+                            </li>
+                            <li class=" d-inline unordered-list-item">
+                                <a href="" class="header-unordered-list-href">Events</a>
+                            </li>
+                            <li class=" d-inline unordered-list-item">
+                                <a href="" class="header-unordered-list-href">Store</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+
             </div>
+
         </div>
     </div>
-    <div class="footer-body champagne d-none d-md-block">
-        <div class="container">
+    <div class="footer-body champagne pt-5 d-none d-md-block">
+        <div class="container  ">
             <div class="row">
                 <div class="col-2">
-                    <h4>Subrscribers</h4>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
+                    <div class="d-flex justify-content-start">
+                        <h4>SUBRSCRIBERS</h4>
+                    </div>
+                    <div class="d-flex  justify-content-start" style="max-width: 104px">
+                        <ul class="list-unstyled">
+                        <li class="pt-2">
+                            <a href="" class="footer-list-item">Start A Subscription</a>
+                        </li>
+                        <li class="pt-2">
+                            <a href="" class="footer-list-item">Subscriber-Only Contenet</a>
+                        </li>
+                        <li class="pt-2">
+                            <a href="" class="footer-list-item">Digital Edition</a>
+                        </li>
+                        <li class="pt-2">
+                            <a href="" class="footer-list-item">Book of Lists - Unlimited</a>
+                        </li>
+                        <li class="pt-2">
+                            <a href="" class="footer-list-item">Manage your Acoount</a>
+                        </li>
+                        <li class="pt-2">
+                            <a href="" class="footer-list-item">Manage My Advertizing</a>
+                        </li>
+                        <li class="pt-2">
+                            <a href="" class="footer-list-item">link1</a>
                         </li>
                     </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
+                    </div>
                 </div>
                 <div class="col-2">
-                    <h4>About</h4>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
+                    <div class="d-flex justify-content-start">
+                        <h4></h4>
+                    </div>
+                    <div class="pt-5 d-flex  justify-content-start" style="max-width: 104px " >
+                        <a href="">
+                            <img src="images/836df6771d4adaed7fc1.png" alt="" style="height: 180px; width: 135px">
+                        </a>
+                    </div>
                 </div>
                 <div class="col-2">
-                    <h4>Apps</h4>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
+                    <div class="d-flex justify-content-start">
+                        <h4>ABOUT & CONTACT</h4>
+                    </div>
+                    <div class="d-flex  justify-content-start" style="max-width: 104px">
+                        <ul class="list-unstyled">
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">About Us</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">About the Business Journals</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">Advertise</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">Help & FAQs</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">Circulation Sales Center Directory</a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-2">
-                    <h4>Follow Us</h4>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
+                    <div class="d-flex justify-content-start">
+                        <h4>APPS & SYNDICATION</h4>
+                    </div>
+                    <div class="d-flex  justify-content-start" style="max-width: 104px">
+                        <ul class="list-unstyled">
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">Mobile Apps</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">Syndication/RSS</a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-2">
-                    <h4>Newsletter</h4>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
+                    <div class="d-flex justify-content-start">
+
+                        <div class="container">
+                            <h4 class="row">FOLLOW US</h4>
+                            <div class="row pb-5 pt-3">
+                                <div class="col-6">
+                                    <a href="">
+
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" class="bi bi-twitter" viewBox="0 0 16 16">
+                                                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                                            </svg>
+
+                                    </a>
+                                </div>
+                                <div class="col-6">
+                                    <a href="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" class="bi bi-linkedin" viewBox="0 0 16 16">
+                                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="col-6 pt-5">
+                                    <a href="" >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" class="bi bi-instagram" viewBox="0 0 16 16">
+                                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="col-6 pt-5">
+                                    <a href="">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" class="bi bi-facebook" viewBox="0 0 16 16">
+                                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                        <h4>NEWSLETTER</h4>
+                    </div>
+                    <div class="d-flex  justify-content-start" style="max-width: 104px">
+                        <ul class="list-unstyled">
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">Sign Up Now</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-2">
-                    <h4>ACBJ</h4>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <a href="">link1</a>
-                        </li>
-                    </ul>
+                    <div class="d-flex justify-content-start">
+                        <h4>ACBJ</h4>
+                    </div>
+                    <div class="d-flex  justify-content-start" style="max-width: 104px">
+                        <ul class="list-unstyled">
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">American City Business Journal</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">AmericanInno</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">BizEquity</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">BizLeads</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">Bizwomen</a>
+                            </li>
+                            <li class="pt-2">
+                                <a href="" class="footer-list-item">Hemmings</a>
+                            </li>
+
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="footer-footer champagne">
         <div class="container">
-            <div class="col ">
+            <div class="col d-flex justify-content-around">
 
                 <ul style="display: inline-block; margin-right: 10px;">
                     <li style="display: inline-block; margin-right: 20px">
-                        <a href="">link1</a>
+                        <a href="" class="href-footer-end">User Agreement</a>
                     </li>
+
                     <li style="display: inline-block; margin-right: 20px">
-                        <a href="">link1</a>
+                        |
                     </li>
+
                     <li style="display: inline-block; margin-right: 20px">
-                        <a href="">link1</a>
+                        <a href="" class="href-footer-end">Privacy Policy</a>
                     </li>
+
                     <li style="display: inline-block; margin-right: 20px">
-                        <a href="">link1</a>
+                        |
                     </li>
+
                     <li style="display: inline-block; margin-right: 20px">
-                        <a href="">link1</a>
+                        <a href="" class="href-footer-end">Ad Choices</a>
                     </li>
+
                     <li style="display: inline-block; margin-right: 20px">
-                        <a href="">link1</a>
+                        |
                     </li>
+
                     <li style="display: inline-block; margin-right: 20px">
-                        <a href="">link1</a>
-                    </li>
-                    <li style="display: inline-block; margin-right: 20px">
-                        <a href="">link1</a>
+                        <a href="" class="href-footer-end">Your Privacy Choices</a>
                     </li>
                 </ul>
             </div>
-            <p>© 2023 American City Business Journals. All rights reserved. Use of and/or
+            <p class="text-center">© 2023 American City Business Journals. All rights reserved. Use of and/or
                 registration on any portion of this site constitutes acceptance of our
                 <a href="/useragreement">User Agreement</a> (updated April 18, 2023)
                 and <a href="/privacy">Privacy Policy</a> (updated January 24, 2023).
@@ -1520,6 +1995,7 @@
                 except with the prior written permission of American City Business Journals.</p>
         </div>
     </div>
+
 </footer>
 
 </body>
